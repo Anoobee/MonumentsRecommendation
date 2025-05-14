@@ -1,0 +1,7 @@
+mkdocs
+pip
+pytest
+python-dotenv
+ruff
+pre_commit==4.2.0
+-e .
