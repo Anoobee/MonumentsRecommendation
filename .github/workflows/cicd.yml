@@ -21,4 +21,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: an00b/monumentrecommendation
+          tags: an00b/monumentrecommendation:latest
