@@ -7,7 +7,7 @@ from datetime import datetime
 def migrate_data():
     db = SessionLocal()
 
-    # Create tags
+    # Create tags if they don't exist
     tag_map = {}
     for monument in monuments_data:
         monument_type = monument.get("type")
