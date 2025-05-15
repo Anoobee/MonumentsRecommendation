@@ -1,7 +1,16 @@
 mkdocs
 pip
 pytest
-python-dotenv
+alembic==1.15.2
+python-dotenv==1.0.0
 ruff
 pre_commit==4.2.0
--e .
+uvicorn==0.24.0
+SQLAlchemy==2.0.41
+pandas==2.2.3
+numpy==2.2.3
+cryptography==43.0.3
+fastapi==0.104.1
+geopy==2.4.1
+PyMySQL==1.1.1
+python-multipart==0.0.6

@@ -301,7 +301,7 @@ def recommend_monuments(
                 "popularity": float(df["popularity"].iloc[i]),
                 "indoor": bool(df["indoor"].iloc[i]),
                 "description": df["description"].iloc[i],
-                "image_url": df["image_url"].iloc[i],
+                # "image_url": df["image_url"].iloc[i],
                 "location": df["location"].iloc[i],
                 "weight": float(final_weights[i]),  # Add the calculated weight
             }
