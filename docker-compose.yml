@@ -32,6 +32,15 @@ services:
       - MYSQL_HOST=db
       - MYSQL_PORT=3306
 
+  mkdocs:
+    container_name: mkdocs_server
+    image: squidfunk/mkdocs-material:latest
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./docs:/docs
+    command: serve -a 0.0.0.0:8000
+
 volumes:
   db:
     driver: local
