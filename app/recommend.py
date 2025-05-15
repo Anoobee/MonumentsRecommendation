@@ -4,10 +4,10 @@ import numpy as np
 import pandas as pd
 from datetime import datetime
 from sqlalchemy.orm import Session
-from database import get_db
+from .database import get_db
 from sqlalchemy import func
 import json
-from models import Monument, Event, MonumentEvent, DaySlot, MonumentSlot
+from .models import Monument, Event, MonumentEvent, DaySlot, MonumentSlot
 
 
 def get_monuments_data(db: Session):
