@@ -1,14 +1,15 @@
-# app/database.py
+# app/db.py
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 import os
+from app.models import Base  # adjust import if needed
 
-# Load .env file
+# Load environment variables from .env file
 load_dotenv()
 
-# Get DB URL from env or build it from parts
+# Build the DATABASE_URL from env or components
 DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     user = os.getenv("MYSQL_USER", "travel")
@@ -18,10 +19,10 @@ if not DATABASE_URL:
     db = os.getenv("MYSQL_DATABASE", "travel")
     DATABASE_URL = f"mysql+pymysql://{user}:{password}@{host}:{port}/{db}"
 
-# Create SQLAlchemy engine
+# Create the SQLAlchemy engine
 engine = create_engine(DATABASE_URL, echo=True)
 
-# Create session factory
+# Create a session factory
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Dependency for getting DB session
@@ -31,3 +32,10 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+# Create tables if run as a script
+if __name__ == "__main__":
+    print("Creating database tables...")
+    Base.metadata.create_all(engine)
+    print("Database tables created.")
