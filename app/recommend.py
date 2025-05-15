@@ -240,7 +240,6 @@ def final_weight_sum(user, df, df_events):
     seasonal_event = calculate_date_score(datetime.now(), df, df_events)
     time_of_day = scores_time_of_day(datetime.now().hour, df)
 
-    # Combine factors with weights
     total = (
         0.4 * distance
         + 0.2 * type_matched
@@ -314,6 +313,8 @@ def recommend_monuments(
         )
 
         # Remove the weight field from the final response
+        for monument in sorted_monuments:
+            print(monument)
         for monument in sorted_monuments:
             del monument["weight"]
 
